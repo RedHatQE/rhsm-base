@@ -1,15 +1,16 @@
 # Change Log
-All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
+
+A few utils to support our testware
 
 ## [Unreleased]
 ### Changed
 
 ## [0.1.1] - 2017-03-14
-### Changed
+### Added
 
-### Removed
-
-### Fixed
+- LsDirectoryListener
+  - list directories before test is start and after test is finished
+  - it uses parameter `ls-dirs` to specify which directories will be listed
 
 ## 0.1.0 - 2017-03-14
 ### Added

@@ -1,0 +1,11 @@
+<suite name="TestSuite">
+  <parameter name="ls-dirs"  value="/etc/pki /etc/pki/product"/>
+  <listeners>
+    <listener class-name="com.redhat.qe.auto.LsDirectoryListener" />
+  </listeners>
+  <test name="First Test">
+    <classes>
+      <class name="FirstTest"/>
+    </classes>
+  </test>
+</suite>
