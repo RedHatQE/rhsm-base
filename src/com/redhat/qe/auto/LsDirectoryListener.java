@@ -6,6 +6,13 @@ import org.testng.ITestContext;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
+/**
+  This listener prints directories content.
+  The content is specified by testng parameter `ls-dirs`
+
+  You can see an example of the usage in `resources/suite.xml`
+*/
+
 public class LsDirectoryListener implements ITestListener {
 
   @Override
@@ -25,18 +32,26 @@ public class LsDirectoryListener implements ITestListener {
 
   @Override
   public void onTestFailure(ITestResult result){
-    
+    printDirs("onTestFailure", result);
   }
 
 	@Override
   public void onTestSkipped(ITestResult result){
-    
   }
 
 	@Override
   public void onTestStart(ITestResult result){
+    printDirs("onTestStart",result);
+  }
+
+  @Override
+  public void onTestSuccess(ITestResult result){
+    printDirs("onTestSuccess", result);
+  }
+
+  private void printDirs(String prefix, ITestResult result){
     // get 'ls-dirs' parameter;
-    System.out.println("onTestStart -- " + result.getName());
+    System.out.println(prefix + " -- " + result.getName());
     String lsDir = result.getTestContext()
       .getCurrentXmlTest()
       .getParameter("ls-dirs");
@@ -51,12 +66,6 @@ public class LsDirectoryListener implements ITestListener {
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
-      
     }
-  }
-
-  @Override
-  public void onTestSuccess(ITestResult result){
-    System.out.println("onTestSuccess");
   }
 }
