@@ -1,11 +1,20 @@
-<suite name="TestSuite">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!--
+    parent-module="com.redhat.qe.DependencyInjectionModule"
+    guice-stage="PRODUCTION"
+-->
+<suite name="TestSuite"
+       parent-module="com.redhat.qe.DependencyInjectionModule"
+       guice-stage="PRODUCTION"
+       
+    >
   <parameter name="ls-dirs"  value="/etc/pki /etc/pki/product"/>
   <listeners>
     <listener class-name="com.redhat.qe.auto.LsDirectoryListener" />
   </listeners>
   <test name="First Test">
     <classes>
-      <class name="FirstTest"/>
+      <class name="test.FirstTest"/>
     </classes>
   </test>
 </suite>

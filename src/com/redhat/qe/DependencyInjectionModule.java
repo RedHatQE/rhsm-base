@@ -1,6 +1,7 @@
 package com.redhat.qe;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Module;
 import com.google.inject.Provides;
 import com.google.inject.Binder;
 
@@ -11,11 +12,11 @@ import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
 import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
-public class DependencyInjectionModule extends AbstractModule {
+public class DependencyInjectionModule implements Module {
   Configuration config = null;
 
   @Override
-  protected void configure (){
+  public void configure (Binder binder){
     System.out.println("module is configured");
   }
 
